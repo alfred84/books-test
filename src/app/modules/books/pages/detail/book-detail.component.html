@@ -21,11 +21,11 @@
                     </tr>
                     <tr>
                         <td style="text-align:right">Price: </td>
-                        <td>{{bookSelected.price}}</td>
+                        <td>{{bookSelected.price | currencyPipe}}</td>
                     </tr>
                     <tr>
                         <td style="text-align:right">Published Date: </td>
-                        <td>{{bookSelected.published}}</td>
+                        <td>{{bookSelected.published | date: 'dd/MM/yyyy'}}</td>
                     </tr>
                     <tr>
                         <td style="text-align:right">Rating: </td>
