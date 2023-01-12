@@ -1,0 +1,53 @@
+<div *ngIf="bookSelected !== undefined" class="card mb-3 border-dark book-detail">
+    <div class="row g-0">
+        <div class="col-2">
+            <img [src]="bookSelected.firstThumbnailUrl" 
+                alt="Book cover"
+                class="cover img-fluid">
+        </div>
+        <div class="col-4">
+                <table class="card-table">
+                    <tr>
+                        <td style="text-align:right">ISBN: </td>
+                        <td>{{bookSelected.isbn}}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right">Title: </td>
+                        <td>{{bookSelected.title}}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right">Author(s): </td>
+                        <td>{{bookSelected.authors}}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right">Price: </td>
+                        <td>{{bookSelected.price}}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right">Published Date: </td>
+                        <td>{{bookSelected.published}}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right">Rating: </td>
+                        <td>{{bookSelected.rating}}</td>
+                    </tr>
+                </table>
+            
+        </div>
+        <div class="col-6">
+
+            <fieldset class="reset">
+                <legend class="reset">Description</legend>
+                <div>
+                    Description: {{bookSelected.description}}
+                </div>
+            </fieldset>
+            
+        </div>
+    </div>
+
+</div>
+
+<a class="btn btn-primary float-end"  [routerLink]="['/books']">Back</a>
+
+
