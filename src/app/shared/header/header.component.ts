@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TermsService } from 'src/app/services/terms.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   term2 = '';
   term3 = '';
 
-  constructor(private router: Router, private termsSvc: TermsService) { }
+  constructor(private router: Router, private termsSvc: TermsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
@@ -38,6 +38,7 @@ export class HeaderComponent implements OnInit {
     }
 
     this.router.navigateByUrl(`/books/search/${term}`);
+    // this.router.navigate(['/books/search/', term ]);
 
     this.termsSvc.saveTerm(term);
 
