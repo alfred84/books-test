@@ -29,7 +29,7 @@
                     </tr>
                     <tr>
                         <td style="text-align:right">Rating: </td>
-                        <td>{{bookSelected.rating}}</td>
+                        <td><star-rating [starType]="'svg'" [rating]="bookSelected.rating" [readOnly]="true"></star-rating></td>
                     </tr>
                 </table>
             

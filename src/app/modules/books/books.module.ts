@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { StarRatingModule } from 'angular-star-rating';
 
 import { BooksRoutingModule } from './books-routing.module';
 import { BooksComponent } from './pages/list/books-list.component';
@@ -15,7 +16,8 @@ import { CurrencyPipe } from '../../pipes/currency.pipe';
   ],
   imports: [
     CommonModule,
-    BooksRoutingModule
+    BooksRoutingModule,
+    StarRatingModule.forRoot()
   ]
 })
 export class BooksModule { }
