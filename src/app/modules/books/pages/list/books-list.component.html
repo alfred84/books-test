@@ -23,7 +23,7 @@
                 <td>{{book.isbn}}</td>
                 <td>{{book.title}}</td>
                 <td>{{book.authors}}</td>
-                <td>{{book.price | currencyPipe }}</td>
+                <td>{{book.price | currency:'':''|currencyPipe }}</td>
                 <td>{{book.published | date: 'dd/MM/yyyy'}}</td>
                 <td>{{book.rating}}</td>
             </tr>

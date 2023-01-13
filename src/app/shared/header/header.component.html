@@ -7,15 +7,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a [routerLink]="['/books/search',term1]" class="nav-link">{{term1}}</a>
         </li>
         <div class="header-separator"></div>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a [routerLink]="['/books/search', term2]" class="nav-link">{{term2}}</a>
         </li> 
         <div class="header-separator"></div>       
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a [routerLink]="['/books/search', term3]" class="nav-link">{{term3}}</a>
         </li>
       </ul>
 

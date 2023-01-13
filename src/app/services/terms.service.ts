@@ -1,13 +1,27 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, ReplaySubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TermsService {
- 
+export class TermsService { 
+
+  searchTerms$ = new ReplaySubject<any>(1);
 
   constructor() { } 
-  
+
+  public getTerms() {
+
+    if(localStorage['searchItems'] === undefined) {      
+      return;      
+    }
+
+    let data:any[] = JSON.parse(localStorage['searchItems']);
+    
+    this.searchTerms$.next(data);
+
+    return data;      
+  }  
 
   public saveTerm(term: string) { 
 
@@ -23,17 +37,21 @@ export class TermsService {
       
       localStorage.setItem('searchItems', JSON.stringify(data));
 
+      this.searchTerms$.next(data);
+
     } else {
 
       let a = [{term}];
       localStorage.setItem('searchItems', JSON.stringify(a));
 
-    }
-    
-  }
+      let value = JSON.parse(localStorage['searchItems']);
 
-  // public getTerms(key: string) {
-  //   return localStorage.getItem(key)
-  // }
+      this.searchTerms$.next(value);
+
+    }
+
+
+    
+  }  
 
 }

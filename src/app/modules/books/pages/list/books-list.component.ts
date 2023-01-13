@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/services/books.service';
 import { delay } from 'rxjs/operators';
-import { TermsService } from 'src/app/services/terms.service';
 
 @Component({
   selector: 'app-books',
@@ -14,7 +13,7 @@ export class BooksComponent implements OnInit {
 
   public books: Book[] = [];
 
-  constructor( private booksSvc: BooksService, private route: ActivatedRoute, private termsSvc: TermsService ) { }
+  constructor( private booksSvc: BooksService, private route: ActivatedRoute ) { }
 
   ngOnInit(): void {
 
@@ -29,8 +28,6 @@ export class BooksComponent implements OnInit {
 
       this.books = resp;
 
-      // console.log(this.books);
-
     });
 
   }
@@ -44,12 +41,7 @@ export class BooksComponent implements OnInit {
 
         this.books = resp;
 
-        // console.log(this.books);
-
       });
-
-
-      // this.termsSvc.
       
     }    
 
