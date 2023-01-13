@@ -8,11 +8,11 @@
             <th scope="col">Author(s)</th>
             <th scope="col">Price</th>
             <th scope="col">Published Date</th>
-            <th scope="col">Rating</th>
+            <th scope="col" style="text-align: center;">Rating</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let book of books | slice:0:10">
+            <tr *ngFor="let book of books | slice:0:10;">
                 <td class="text-center">
                     <a [routerLink]="['/books', book.isbn, 'details']">
                         <img [src]="book.firstThumbnailUrl" 
@@ -22,7 +22,11 @@
                 </td>
                 <td>{{book.isbn}}</td>
                 <td>{{book.title}}</td>
-                <td>{{book.authors}}</td>
+                <td>
+                    <span *ngFor="let author of book.authors;">
+                        {{author}}<br/>
+                    </span>
+                </td>
                 <td>{{book.price | currency:'':''|currencyPipe }}</td>
                 <td>{{book.published | date: 'dd/MM/yyyy'}}</td>
                 <td><star-rating [starType]="'svg'" [rating]="book.rating" [readOnly]="true"></star-rating></td>

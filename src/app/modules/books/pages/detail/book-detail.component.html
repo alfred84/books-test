@@ -16,8 +16,12 @@
                         <td>{{bookSelected.title}}</td>
                     </tr>
                     <tr>
-                        <td style="text-align:right">Author(s): </td>
-                        <td>{{bookSelected.authors}}</td>
+                        <td style="text-align:right; vertical-align: top;">Author(s): </td>
+                        <td>
+                            <span *ngFor="let author of bookSelected.authors;">
+                                {{author}}<br/>
+                            </span>
+                        </td>
                     </tr>
                     <tr>
                         <td style="text-align:right">Price: </td>
