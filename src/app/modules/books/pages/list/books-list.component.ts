@@ -16,9 +16,14 @@ export class BooksComponent implements OnInit {
   constructor( private booksSvc: BooksService, private route: ActivatedRoute ) { }
 
   ngOnInit(): void {
-
-    this.loadBooks();
-    this.route.params.subscribe(params => this.search(params['term']));
+    
+    this.route.params.subscribe(params => {      
+      if (params['term']) {
+        this.search(params['term']);       
+      } else {
+        this.loadBooks();
+      }
+    });
   }
 
   loadBooks() {
@@ -37,10 +42,8 @@ export class BooksComponent implements OnInit {
     if (term) {
 
       this.booksSvc.searchBooks(term)
-      .pipe(delay(100)).subscribe( (resp: any) => {
-
+      .subscribe( (resp: any) => {
         this.books = resp;
-
       });
       
     }    
